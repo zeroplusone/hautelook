@@ -7,6 +7,11 @@ import {
   transition
 } from '@angular/animations';
 
+// Shoes Class
+import { Shoes } from '../Shoes';
+// mock data
+import { SHOESLIST } from '../mock-shoes';
+
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -28,7 +33,7 @@ import {
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  shoes_list = SHOESLIST;
 
   onClick(){
     console.log("HI")

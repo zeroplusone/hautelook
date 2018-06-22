@@ -1,21 +1,21 @@
 <div class="background">
 
-<div class="flex-container">
-    <div class="shoe-img-div">
-      <button (click)="onClick()">
+    <div class="flex-container">
+        <div class="shoe-img-div">
+            <button (click)="onClick()">
         <img class="shoe-img" src="../assets/img/8448690.jpg"/>
       </button>
-    </div>
-    
-    <div class="shoe-img-div">
-      <button (click)="onClick()">
+        </div>
+
+        <div class="shoe-img-div">
+            <button (click)="onClick()">
         <img class="shoe-img" src="../assets/img/8448686.jpg"/>
       </button>
+        </div>
     </div>
-</div>
 
-
-
-
-
+    <div *ngFor="let item of shoes_list">
+        <span>id: </span>{{item.id}}
+        <span>path: </span> <img class="shoe-img" src={{item.path}}/>
+    </div>
 </div>
