@@ -36,6 +36,15 @@ export class LandingPageComponent implements OnInit {
   shoes_list = SHOESLIST;
   select_list = [];
   summary_list = [];
+  leftShoes = null;
+  rightShoes = null;
+  
+  endFlag = false;
+
+  // const value
+  static LEFT_INDEX = 0;
+  static RIGHT_INDEX = 1;
+
   constructor() { 
     // generate Random List
     while(this.shoes_list.length != 0){
@@ -43,14 +52,50 @@ export class LandingPageComponent implements OnInit {
       this.select_list.push(this.shoes_list[randomNum]);
       this.shoes_list.splice(randomNum, 1);
     }
+    // select two candidate
+    this.selectCandidate();
   }
 
   getRandomShoes() {
     return Math.floor((Math.random() * this.shoes_list.length) );
   }
 
-  onClick(){
-    console.log("HI")
+  selectCandidate(){
+    if(this.select_list.length<2){
+      this.showResult();
+    }else{
+      this.leftShoes = this.select_list[LandingPageComponent.LEFT_INDEX];
+      this.rightShoes = this.select_list[LandingPageComponent.RIGHT_INDEX];
+    }
+  }
+
+  showResult(){
+    console.log("end");
+    this.endFlag = true;
+  }
+
+  leftClick(){
+    if(!this.endFlag){
+      console.log("left");
+      this.select_list.splice(LandingPageComponent.RIGHT_INDEX, 1);
+      // move winner to the end of queue
+      var tmp = this.select_list.shift();
+      this.select_list.push(tmp);
+      // update candidate
+      this.selectCandidate();
+    }
+  }
+
+  rightClick(){
+    if(!this.endFlag){
+      console.log("right");
+      this.select_list.splice(LandingPageComponent.LEFT_INDEX, 1);
+      // move winner to the end of queue
+      var tmp = this.select_list.shift();
+      this.select_list.push(tmp);
+      // update candidate
+      this.selectCandidate();
+    }
   }
 
   ngOnInit() {

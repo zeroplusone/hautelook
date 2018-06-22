@@ -2,15 +2,15 @@
 
     <div class="flex-container">
         <div class="shoe-img-div">
-            <button (click)="onClick()">
-        <img class="shoe-img" src="../assets/img/8448690.jpg"/>
-      </button>
+            <button (click)="leftClick()">
+              <img class="shoe-img" src={{leftShoes.path}}/>
+            </button>
         </div>
 
         <div class="shoe-img-div">
-            <button (click)="onClick()">
-        <img class="shoe-img" src="../assets/img/8448686.jpg"/>
-      </button>
+            <button (click)="rightClick()">
+              <img class="shoe-img" src={{rightShoes.path}}/>
+            </button>
         </div>
     </div>
 
