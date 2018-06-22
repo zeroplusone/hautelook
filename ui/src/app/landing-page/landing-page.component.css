@@ -1,0 +1,27 @@
+.background {
+    background-color: pink;
+}
+
+.shoe-img {
+
+
+
+	margin-top: 40px;
+    width:200px;
+
+	clip-path: circle(100px);
+}
+
+.shoe-img-div{
+	width:100%;	
+	margin-top: 50px;
+	border-radius:50px;
+
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+
+
+}
