@@ -34,6 +34,20 @@ import { SHOESLIST } from '../mock-shoes';
 export class LandingPageComponent implements OnInit {
 
   shoes_list = SHOESLIST;
+  select_list = [];
+  summary_list = [];
+  constructor() { 
+    // generate Random List
+    while(this.shoes_list.length != 0){
+      var randomNum = this.getRandomShoes();
+      this.select_list.push(this.shoes_list[randomNum]);
+      this.shoes_list.splice(randomNum, 1);
+    }
+  }
+
+  getRandomShoes() {
+    return Math.floor((Math.random() * this.shoes_list.length) );
+  }
 
   onClick(){
     console.log("HI")
